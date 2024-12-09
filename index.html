@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Resume</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .body {
+            background: linear-gradient(170deg, #770491, #08062a, #1569d0);
+            height: 100vh;
+            /* Ensures it covers the viewport height */
+            width: 100vw;
+            /* Ensures it covers the viewport width */
+            margin: 0;
+            display: flex;
+            /* Optional: for centering content inside */
+            justify-content: center;
+            /* Optional: horizontal centering */
+            align-items: center;
+            /* Optional: vertical centering */
+        }
+
+        /* Global Styles */
+        .mainDabba {
+
+            height: 600px;
+            margin-left: 13%;
+            margin-right: 50px;
+            margin-top: 100px;
+            width: 80%;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            display: flex;
+            gap: 10px;
+            border-radius: 10px;
+        }
+
+        /* Vertical Navbar */
+        .navbar {
+            position: fixed;
+            border-radius: 9px;
+            top: 250px;
+            left: 8%;
+            width: 50px;
+            height: 240px;
+            background: #121212;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar a {
+            text-decoration: none;
+            margin: 15px 0;
+            color: #00bcd4;
+            font-size: 24px;
+            transition: transform 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+
+        .navbar a:hover {
+            color: #fff;
+            transform: scale(1.2);
+        }
+
+        .navbar a.active {
+            color: #fff;
+            transform: scale(1.2);
+        }
+
+        /* me section*/
+        .me {
+            width: 250px;
+            padding: 20px;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            h2 {
+                /* margin-left: 80px; */
+            }
+
+            img {
+                /* margin-left: 25px; */
+                width: 100%;
+                height: auto;
+                aspect-ratio: 3/3;
+                border-radius: 50%;
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 0;
+            width: 680px;
+            height: 550px;
+            padding: 20px;
+
+        }
+
+        /* Sections */
+        .section {
+            width: auto;
+            height: 510px;
+            display: none;
+            overflow-y: scroll;
+            /* Initially hidden */
+            background: #1c1c1c;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            margin-right: 10px;
+
+            h3 {
+                background: linear-gradient(to right, #b9cc07, #00bcd4);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            li {
+                font-size: 1.3rem;
+            }
+        }
+
+        .section.active {
+            display: block;
+            /* Only active section is shown */
+        }
+
+        .pehla {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .coding,
+        .sports,
+        .finance {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        /* .about {
+            width: 200px;
+        } */
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #00bcd4, #3f51b5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .info-card,
+        .info-card1 {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: #292929;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .p1 {
+            text-align: center;
+
+            img {
+                width: 80%;
+                aspect-ratio: 3/3;
+                border-radius: 15px;
+                transition: transform 0.3s, color 0.3s;
+                cursor: pointer;
+            }
+
+            img:hover {
+                /* width: 210px; */
+                transform: scale(1.1);
+            }
+        }
+
+        /* info card */
+        .info-card,
+        .info-card1 {
+            background: #292929;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .info-card span {
+            color: #00bcd4;
+        }
+
+        /* for contact section */
+
+        .contact-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            text-align: left;
+            padding: 10px;
+        }
+
+        .contact-detail span {
+            display: block;
+            font-size: 14px;
+            color: #00ffff;
+            margin-bottom: 5px;
+        }
+
+        .resume,
+        .skillSection {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+
+        @media(max-width:900px) {
+            .body {
+                background: linear-gradient(95deg, #770491, #08062a, #1569d0);
+                height: auto;
+                width: 100%;
+            }
+
+
+
+            /* Global Styles */
+            .mainDabba {
+
+                height: auto;
+                margin: 10px auto;
+                width: 80%;
+                font-family: 'Poppins', sans-serif;
+                background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+                color: #fff;
+                display: block;
+                gap: 0;
+                overflow-y: scroll;
+                box-sizing: border-box;
+                padding: 10px;
+            }
+
+            /* Vertical Navbar */
+            .navbar {
+                display: none;
+            }
+
+            /* me section*/
+            .me {
+                width: 50%;
+                /* padding: 20px; */
+                margin: 0 auto;
+                display: block;
+
+
+                h2 {
+                    font-size: 1rem;
+                }
+
+            }
+
+            /* Main Content */
+            .main-content {
+                width: 90%;
+                height: auto;
+                padding: 20px;
+
+            }
+
+            /* Sections */
+            .section {
+                width: auto;
+                height: 80vh;
+                display: block;
+                block-size: 10%;
+                /* overflow-y: scroll; ----------------pata nhi*/
+                /* Initially hidden */
+                background: #1c1c1c;
+                border-radius: 10px;
+                padding: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+                margin: 0 auto;
+                box-sizing: border-box;
+
+                h3 {
+                    background: linear-gradient(to right, #b9cc07, #00bcd4);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+
+                li {
+                    font-size: 85%;
+                }
+            }
+
+            .section.active {
+                display: block;
+                /* Only active section is shown */
+            }
+
+            .pehla {
+                display: block;
+
+            }
+
+            .about {
+                width: 100%;
+                height: 50%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .coding,
+            .sports,
+            .finance {
+                font-size: 90%;
+                width: 100px;
+                display: flex;
+                flex-direction: row;
+                gap: 2%;
+            }
+
+            .section h2 {
+                margin: 10px 0;
+                font-size: 120%;
+                background: linear-gradient(to right, #00bcd4, #3f51b5);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .section p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .info-card1 {
+                display: block;
+                margin: 0;
+                padding: 5%;
+            }
+
+            .p1 {
+                text-align: center;
+
+                img {
+                    width: 80%;
+                    aspect-ratio: 3/3;
+                    border-radius: 25%;
+                    transition: transform 0.3s, color 0.3s;
+                    cursor: pointer;
+                }
+
+                img:hover {
+                    /* width: 210px; */
+                    transform: scale(1.1);
+                }
+            }
+
+            /* for contact section */
+
+            .contact-container {
+                width: 75%;
+                padding: 5%;
+                background: #222;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            }
+
+            .contact-details {
+                display: block;
+                margin-bottom: 30px;
+            }
+
+            .contact-detail {
+                text-align: left;
+                padding: 5px;
+            }
+
+            .contact-detail span {
+                display: block;
+                font-size: 100%;
+                color: #00ffff;
+                margin-bottom: 5px;
+            }
+
+            .resume,
+            .skillSection {
+                display: block;
+                flex-direction: row;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <!-- main dabba -->
+        <div class="mainDabba">
+            <!-- Vertical Navbar -->
+            <div class="navbar">
+                <a data-target="about" class="active">👤</a>
+                <a data-target="resume">📄</a>
+                <a data-target="services">💼</a>
+                <a data-target="contact">✉️</a>
+            </div>
+            <div class="me">
+                <div class="myImage">
+                    <img src="S1.jpg" alt="Profile Picture">
+                </div>
+                <h2>Satyam Raj</h2>
+                <h3 style="background: linear-gradient(to right, #04e6b9, #ede900);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;">Web Developer</h3>
+                <a
+                    href="https://www.linkedin.com/in/satyam-raj-924b382a6?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEnZ0iwBRijYfQ56OiIXsSXn5eBO6qbqco0&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BOJClKgwiR7Wrc1GKHbwn7A%3D%3D"><img
+                        src="l1.jpg" alt="" style="width: 20%;"></a>
+                <a href="https://github.com/Satyam4755"><img src="g1.jpg" alt="" style="width: 20%;"></a>
+                <a href="https://x.com/raj_satyam4755"><img src="T1.png" alt="" style="width: 20%;"></a>
+            </div>
+            <hr>
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- About Section -->
+                <div id="about" class="section active">
+                    <div class="pehla">
+                        <div class="about">
+                            <h2>About Me</h2>
+                            <p>Hello! I'm Satyam Raj. A coding enthusiast with expertise in web design and development.
+                                I
+                                enjoy
+                                building unique and creative projects that solve real-world problems.
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="info-card">
+                            <p><span>Age:</span> 20</p>
+                            <p><span>Freelance:</span> currently not</p>
+                            <p><span>Address:</span> Lucknow, India</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="hobies">
+                        <h2>My Hobies</h2>
+                        <div class="coding">
+                            <h3>Coding</h3>
+                            <ol>
+                                <li>HTML, CSS, JS</li>
+                                <li>JAVA</li>
+                            </ol>
+                        </div>
+                        <div class="sports">
+                            <h3>Sports</h3>
+                            <ol>
+                                <li>Badminton</li>
+                                <li>Running</li>
+                                <li>Volley-Ball</li>
+                            </ol>
+                        </div>
+                        <div class="finance">
+                            <h3>Finance</h3>
+                            <ol>
+                                <li>Money Management</li>
+                                <li>Budgeting</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Resume Section -->
+                <div id="resume" class="section">
+                    <h2>My Resume</h2>
+                    <hr>
+                    <div class="resume">
+                        <div class="expertize">
+                            <h2>Experience</h2>
+                            <hr>
+                            <p style="border: 1px solid blanchedalmond;width: fit-content; padding: 5px;">2023-Present
+                            </p>
+                            <h3>Web Developer</h3>
+                            <p>I've build many mini projects based on front-end development. And
+                                continuing on the back-end process.
+                            </p>
+                            <hr>
+                            <p style="border: 1px solid blanchedalmond;width: fit-content;padding: 5px;">2022-Present
+                            </p>
+                            <h3>Video Editor</h3>
+                            <p>I edit the videos including youtube videos, shorts, insta-reels, etc</p>
+                        </div>
+                        <hr>
+                        <div class="education">
+                            <h2>Education</h2>
+                            <hr>
+                            <p style="border: 1px solid blanchedalmond;width: fit-content;padding: 5px;">2023-2026</p>
+                            <h3>Bachelor of Computer Applications</h3>
+                            <p>Currently I'm persuing B.C.A from G.I.H.S.M Lucknow University.</p>
+                            <hr>
+
+                            <p style="border: 1px solid blanchedalmond;width: fit-content;padding: 5px;">2019-2023</p>
+                            <h3>Secondary and Higher Secondary Education</h3>
+                            <p>Completed my Secondary and Higher Secondary Education from Jagran Public School with
+                                85% of marks in Secondary and 60.5% of marks in Higher Secondary.</p>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <!-- skills -->
+                    <div class="skills">
+                        <h2>My Skills</h2>
+                        <hr>
+                        <div class="skillSection">
+                            <div class="development">
+                                <!-- development -->
+                                <h2>Development</h2>
+                                <ul>
+                                    <li>Web Development <br> 🟢 🟢 🟢 ⚪️ ⚪️
+                                    </li><br>
+                                    <li>Video Editing<br> 🟢 🟢 🟢 🟢 ⚪️</li>
+                                </ul>
+                                <hr>
+                                <!-- communication -->
+                                <h2>Communication</h2>
+                                <ul style="font-size: large; ">
+                                    <li>Hindi <br> 🟢 🟢 🟢 🟢 🟢 </li><br>
+                                    <li>English <br> 🟢 🟢 🟢 ⚪️ ⚪️ </li>
+                                </ul>
+                                <hr>
+
+                            </div>
+                            <hr>
+                            <!-- next column -->
+                            <div class="code">
+                                <!-- coding -->
+                                <h2>Coding Languages</h2>
+                                <ul>
+                                    <li>HTML, CSS, JS <br> 🟢 🟢 🟢 ⚪️ ⚪️</li><br>
+                                    <li>JAVA <br> 🟢 🟢 ⚪️ ⚪️ ⚪️</li><br>
+                                    <li>PYTHON <br> 🟢 🟢 🟢 ⚪️ ⚪️</li><br>
+                                    <li>C <br> 🟢 🟢 🟢 ⚪️ ⚪️</li>
+                                </ul>
+                                <hr>
+                                <!-- Management -->
+                                <h2>Management</h2>
+                                <ul>
+                                    <li>Time Management<br> 🟢 🟢 🟢 🟢 ⚪️</li><br>
+                                    <li>Team Management<br> 🟢 🟢 🟢 ⚪️ ⚪️</li><br>
+                                    <li>Work Management<br> 🟢 🟢 🟢 🟢 ⚪️</li><br>
+                                </ul>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Services Section -->
+                <div id="services" class="section">
+                    <h2>My Projects</h2>
+                    <div class="info-card1" style="flex-wrap: nowrap;">
+                        <div class="rows">
+                            <div class="p1 b1"><a href="https://satyam4755.github.io/Tic-Tak-Toe-Game/"><img
+                                        src="p1.jpg" alt="" srcset=""></div><br>
+                            <hr></a><br>
+                            <div class="p1 b2"><a href="https://sorryhubgit.github.io/Snake-game/"><img src="p2.jpg"
+                                        alt="" srcset=""></div><br>
+                            <hr></a><br>
+                            <div class="p1 b3"><a href="https://satyam4755.github.io/Typing-Speed-Tester/"><img
+                                        src="p3.jpg" alt="" srcset=""></div><br>
+                            <hr></a><br>
+                            <div class="p1 b4"><a href="https://satyam4755.github.io/Simon-Say-s-Game/"><img
+                                        src="p4.jpg" alt="" srcset=""></div><br>
+                            <hr></a><br>
+                        </div>
+                        <hr>
+                        <div class="columns">
+                            <div class="p1 b5"><a href="https://satyam4755.github.io/Rock-Paper-Scissors-/"><img
+                                        src="p5.jpg" alt="" srcset=""></div><br>
+                            <hr></a><br>
+                            <div class="p1 b6"><a href="https://satyam4755.github.io/Music_section/"><img src="p6.jpg"
+                                        alt="" srcset=""></div><br>
+                            <hr></a><br>
+                            <div class="p1 b7"><a href="https://satyam4755.github.io/Sudoku-Game/"><img src="p7.png"
+                                        alt="" srcset=""></div><br>
+                            <hr></a><br>
+                            <div class="p1 b8"><a href="https://satyam4755.github.io/Dom-Array-Manipulations/"><img
+                                        src="p8.jpg" alt="" srcset=""></div><br>
+                            <hr></a><br>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div id="contact" class="section">
+                    <div class="contact-container">
+                        <h2>Stay Connected</h2>
+                        <div class="contact-details">
+                            <div class="contact-detail">
+                                <span>Address:</span>
+                                Lucknow, India
+                            </div>
+                            <div class="contact-detail">
+                                <span>Email:</span>
+                                <p style="word-wrap: break-word;">satyambpl.2004@gmail.com</p>
+                            </div>
+                            <div class="contact-detail">
+                                <span>Freelance:</span>
+                                For Video Editing
+                            </div>
+                        </div>
+                        <h3>Send Message</h3>
+                        <form action="mailto:satyambpl.2004@gmail.com" method="POST" enctype="text/plain">
+                            <input type="text" name="Name" placeholder="Full Name" required
+                                style="background-color: #0f2027; color: blanchedalmond; border: 1px solid wheat; padding: 10px; width: 80%;" />
+                            <input type="email" name="Email" placeholder="Email Address" required
+                                style="background-color: #0f2027; color: blanchedalmond; border: 1px solid wheat; padding: 10px; width: 80%;" /><br><br>
+                            <textarea name="Message" placeholder="Your Message" required
+                                style="background-color: #0f2027; color: blanchedalmond; border: 1px solid wheat; padding: 10px; width: 80%;"></textarea>
+                            <button type="submit"
+                                style="border-style: none; background-color: blanchedalmond; border-radius: 10px; padding: 10px; width: 80%;color: black;">Send
+                                Message ✈</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Select all navbar links and sections
+        const navLinks = document.querySelectorAll('.navbar a');
+        const sections = document.querySelectorAll('.section');
+
+        // Add event listeners to navbar links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove active class from all links
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                // Add active class to the clicked link
+                link.classList.add('active');
+
+                // Hide all sections
+                sections.forEach(section => section.classList.remove('active'));
+                // Show the target section
+                const target = link.getAttribute('data-target');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
