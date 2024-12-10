@@ -4,9 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Satyam Raj</title>
     <link rel="icon" href="logo.png" type="image/x-icon">
     <style>
+        /* neeche se upar ke liye */
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+         /* upar se neeche  ke liye */
+         @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        /* left se right*/
+        @keyframes slideRight {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        /* right to left */
+        @keyframes slideLeft {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
 
         body {
             margin: 0;
@@ -99,6 +148,7 @@
                 height: auto;
                 aspect-ratio: 3/3;
                 border-radius: 50%;
+                opacity: 0;
             }
         }
 
@@ -145,6 +195,13 @@
             flex-direction: row;
             gap: 20px;
         }
+        .pehla,.resume,.b1,.b3,.b5,.b7{
+            /* animation: slideRight 1s ease-out forwards; */
+            opacity: 0;
+            }
+            .hobies,.skills,.b2,.b4,.b6,.b8{
+                opacity: 0;
+            }
 
         .coding,
         .sports,
@@ -248,7 +305,27 @@
             flex-direction: row;
             gap: 20px;
         }
+        .second,
+            .third,.forth{
+                opacity: 0;
+            }
 
+
+            .animateUp {
+                animation: slideUp 1s ease-out forwards;
+            }
+
+        .animateRight {
+                animation: slideRight 1s ease-out forwards;
+            }
+            .animateLeft{
+                animation: slideLeft 1s ease-out forwards;
+            }
+            .me{
+                img{
+                    animation: slideDown 1s ease-out forwards;
+                }
+            }
 
         @media(max-width:900px) {
             .body {
@@ -308,8 +385,6 @@
                 height: 80vh;
                 display: block;
                 block-size: 10%;
-                /* overflow-y: scroll; ----------------pata nhi*/
-                /* Initially hidden */
                 background: #1c1c1c;
                 border-radius: 10px;
                 padding: 10px;
@@ -333,9 +408,12 @@
                 /* Only active section is shown */
             }
 
-            .pehla {
+            .pehla,.resume,.b1,.b3,.b5,.b7{
                 display: block;
-
+                opacity: 0;
+            }
+            .hobies,.skills,.b2,.b4,.b6,.b8{
+                opacity: 0;
             }
 
             .about {
@@ -424,6 +502,22 @@
                 flex-direction: row;
                 gap: 20px;
             }
+
+            .second,
+            .third,.active,.forth{
+                opacity: 0;
+            }
+
+
+            .animateUp {
+                animation: slideUp 1s ease-out forwards;
+            }
+            .animateRight {
+                animation: slideRight 1s ease-out forwards;
+            }
+            .animateLeft{
+                animation: slideLeft 1s ease-out forwards;
+            }
         }
     </style>
 </head>
@@ -446,7 +540,7 @@
                 <h2>Satyam Raj</h2>
                 <h3 style="background: linear-gradient(to right, #04e6b9, #ede900);
                 -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;">Web Developer / Video Editor</h3>
+                -webkit-text-fill-color: transparent;">Web Developer</h3>
                 <a
                     href="https://www.linkedin.com/in/satyam-raj-924b382a6?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEnZ0iwBRijYfQ56OiIXsSXn5eBO6qbqco0&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BOJClKgwiR7Wrc1GKHbwn7A%3D%3D"><img
                         src="l1.jpg" alt="" style="width: 20%;"></a>
@@ -504,7 +598,7 @@
                 </div>
 
                 <!-- Resume Section -->
-                <div id="resume" class="section">
+                <div id="resume" class="section second">
                     <h2>My Resume</h2>
                     <hr>
                     <div class="resume">
@@ -590,7 +684,7 @@
                 </div>
 
                 <!-- Services Section -->
-                <div id="services" class="section">
+                <div id="services" class="section third">
                     <h2>My Projects</h2>
                     <div class="info-card1" style="flex-wrap: nowrap;">
                         <div class="rows">
@@ -628,7 +722,7 @@
                 </div>
 
                 <!-- Contact Section -->
-                <div id="contact" class="section">
+                <div id="contact" class="section forth">
                     <div class="contact-container">
                         <h2>Stay Connected</h2>
                         <div class="contact-details">
@@ -681,6 +775,78 @@
                 // Show the target section
                 const target = link.getAttribute('data-target');
                 document.getElementById(target).classList.add('active');
+            });
+        });
+        // for up ward animation
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null, // Use the viewport as the container
+                rootMargin: "0px",
+                threshold: 0.1, // Trigger when 10% of the element is visible
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animateUp");
+                    }
+                });
+            };
+            
+            const observerUp = new IntersectionObserver(observerCallback, observerOptions);
+
+            // Select elements to observe
+            const elementsToAnimate = document.querySelectorAll(".second, .third, .active,.forth");
+            elementsToAnimate.forEach(element => {
+                observerUp.observe(element);
+            });
+        });
+        // for right ward.....
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions2 = {
+                root: null, // Use the viewport as the container
+                rootMargin: "0px",
+                threshold: 0.1, // Trigger when 10% of the element is visible
+            };
+
+            const observerCallback2 = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animateRight");
+                    }
+                });
+            };
+            // for up
+            const observerRight = new IntersectionObserver(observerCallback2, observerOptions2);
+
+            // Select elements to observe
+            const elementsToAnimate = document.querySelectorAll(".pehla, .resume,.b1,.b3,.b5,.b7");
+            elementsToAnimate.forEach(element => {
+                observerRight.observe(element);
+            });
+        });
+        // for left ward.....
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions3 = {
+                root: null, // Use the viewport as the container
+                rootMargin: "0px",
+                threshold: 0.1, // Trigger when 10% of the element is visible
+            };
+
+            const observerCallback3 = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animateLeft");
+                    }
+                });
+            };
+            // for up
+            const observerLeft = new IntersectionObserver(observerCallback3, observerOptions3);
+
+            // Select elements to observe
+            const elementsToAnimate = document.querySelectorAll(".hobies,.skills,.b2,.b4,.b6,.b8");
+            elementsToAnimate.forEach(element => {
+                observerLeft.observe(element);
             });
         });
     </script>
