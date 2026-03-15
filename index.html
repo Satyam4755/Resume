@@ -2,891 +2,956 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Satyam Raj</title>
-  <link rel="icon" href="S1.jpg" type="image/x-icon">
+  <link rel="icon" href="S1.jpg" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --dark-blue: #0f2027;
-      --mid-blue: #203a43;
-      --sky-blue: #04e6b9;
-      --accent: #ede900;
-      --white: #f8f8ff;
-      --navbar-bg: #162447;
-      --navbar-active: #04e6b9;
-      --card-bg: #1b2a41;
-      --border-radius: 18px;
-      --shadow: 0 4px 24px rgba(4, 230, 185, 0.12);
+      --bg: #080a12;
+      --bg-2: #0f172a;
+      --accent: #4de6ff;
+      --accent-2: #c7ff00;
+      --glass: rgba(25, 32, 57, 0.55);
+      --glass-strong: rgba(25, 32, 57, 0.75);
+      --text: #eff2ff;
+      --muted: rgba(222, 233, 255, 0.68);
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+      --speed: 0.32s;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
-      background: linear-gradient(135deg, var(--dark-blue) 60%, var(--sky-blue) 100%);
-      color: var(--white);
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top, rgba(87, 195, 255, 0.22), transparent 60%),
+        radial-gradient(circle at 20% 10%, rgba(199, 255, 0, 0.14), transparent 60%),
+        linear-gradient(140deg, #050713 0%, #0a1224 55%, #050713 100%);
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    .body {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      padding: 18px 0;
+      backdrop-filter: blur(18px);
+      background: rgba(9, 15, 33, 0.55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.34);
+    }
+
+    .nav {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 1.05rem;
+    }
+
+    .nav__brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid rgba(77, 230, 255, 0.55);
+      box-shadow: 0 10px 24px rgba(77, 230, 255, 0.25);
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    .nav__links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: transform var(--speed), background var(--speed), color var(--speed);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .nav__links a:hover,
+    .nav__links a.active {
+      background: rgba(77, 230, 255, 0.14);
+      border-color: rgba(77, 230, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .nav__toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(14px);
+      cursor: pointer;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
     }
 
-    .mainDabba {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
-      padding: 32px 40px;
-      max-width: 950px;
-      width: 100%;
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding: 160px 0 120px;
+      overflow: hidden;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      display: grid;
+      gap: 20px;
+      padding: 0 1rem;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    .hero__heading {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.05;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .hero__sub {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 1.1rem;
+      max-width: 520px;
+    }
+
+    .hero__actions {
       display: flex;
-      flex-direction: column;
-      gap: 24px;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(77, 230, 255, 0.12);
+      color: var(--text);
+      font-weight: 600;
+      transition: transform var(--speed), background var(--speed), box-shadow var(--speed);
+    }
+
+    .btn--primary {
+      background: linear-gradient(110deg, rgba(77, 230, 255, 0.25), rgba(199, 255, 0, 0.16));
+      border-color: rgba(77, 230, 255, 0.4);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero__socials {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .social-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+      transition: transform var(--speed), background var(--speed);
+    }
+
+    .social-icon img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-2px);
+      background: rgba(77, 230, 255, 0.18);
+    }
+
+    .hero__canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .pattern {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.4;
+      background: radial-gradient(circle at top, rgba(77, 230, 255, 0.16), transparent 55%),
+        radial-gradient(circle at 20% 10%, rgba(199, 255, 0, 0.13), transparent 52%),
+        repeating-linear-gradient(35deg, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0) 60px);
+      mix-blend-mode: screen;
+    }
+
+    section {
+      padding: 100px 0;
       position: relative;
     }
 
-    .navbar {
+    section + section {
+      padding-top: 120px;
+    }
+
+    .section__title {
       display: flex;
-      flex-direction: column;
-      position: absolute;
-      justify-content: space-evenly;
-      left: -70px;
-      top: 40px;
-      background: var(--navbar-bg);
-      border-radius: var(--border-radius);
+      align-items: center;
+      gap: 12px;
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin: 0 0 18px;
+      letter-spacing: -0.02em;
+      text-transform: capitalize;
+    }
+
+    .section__title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(77, 230, 255, 0.35), rgba(199, 255, 0, 0.12));
+      margin-left: 16px;
+      border-radius: 999px;
+    }
+
+    .glass {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 16px 8px;
-      gap: 18px;
-      z-index: 10;
+      backdrop-filter: blur(20px);
+      padding: 26px;
+      overflow: hidden;
+      position: relative;
+      transition: transform var(--speed);
     }
 
-    .navbar a {
-      font-size: 1.7rem;
-      color: var(--white);
-      padding: 10px 14px;
-      border-radius: 50%;
-      transition: background 0.2s, color 0.2s, transform 0.2s;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(4, 230, 185, 0.08);
+    .glass:hover {
+      transform: translateY(-3px);
     }
 
-    .navbar a.active,
-    .navbar a:hover {
-      background: var(--navbar-active);
-      color: var(--dark-blue);
-      transform: scale(1.15);
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    .me {
-      display: flex;
-      flex-direction: column;
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .badge {
+      display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .myImage img {
-      width: 110px;
-      height: 110px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid var(--sky-blue);
-      box-shadow: 0 2px 12px rgba(4, 230, 185, 0.18);
-      transition: transform 0.3s;
-    }
-
-    .myImage img:hover {
-      transform: rotate(-8deg) scale(1.08);
-    }
-
-    .me h2 {
-      font-size: 2.1rem;
-      font-weight: 700;
-      margin: 0;
-      letter-spacing: 1px;
-      color: var(--sky-blue);
-      text-shadow: 0 2px 8px #04e6b980;
-    }
-
-    .me h3 {
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin: 0;
-      background: linear-gradient(to right, var(--sky-blue), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 8px #04e6b980;
-    }
-
-    .me a img {
-      margin: 0 6px;
-      border-radius: 50%;
-      border: 2px solid var(--sky-blue);
-      box-shadow: 0 2px 8px #04e6b980;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .me a img:hover {
-      transform: scale(1.15) rotate(8deg);
-      box-shadow: 0 4px 16px #04e6b980;
-    }
-
-    hr {
-      border: solid blue;
-      border-top: 1.5px solid var(--sky-blue);
-      margin: 18px 0;
-      opacity: 0.3;
-    }
-
-    .main-content {
-      margin-top: 10px;
-    }
-
-    .section {
-      display: none;
-      animation: fadeIn 0.7s;
-    }
-
-    .section.active {
-      display: block;
-    }
-
-    /* About Section */
-    .pehla {
-      display: flex;
-      flex-direction: row;
-      gap: 32px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-
-    .about {
-      background: var(--navbar-bg);
-      border-radius: var(--border-radius);
-      padding: 18px 22px;
-      box-shadow: var(--shadow);
-      min-width: 220px;
-    }
-
-    .about h2 {
-      color: var(--sky-blue);
-      margin-bottom: 8px;
-    }
-
-    .about p {
-      font-size: 1.05rem;
-      color: var(--white);
-      opacity: 0.95;
-    }
-
-    .info-card {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 18px 22px;
-      box-shadow: var(--shadow);
-      min-width: 180px;
-    }
-
-    .info-card p {
-      margin: 8px 0;
-      font-size: 1.05rem;
-    }
-
-    .info-card span {
-      color: var(--sky-blue);
+      padding: 10px 14px;
+      border-radius: 16px;
       font-weight: 600;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
     }
 
-    .hobies {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      margin-top: 18px;
-      background: var(--navbar-bg);
-      border-radius: var(--border-radius);
-      padding: 18px 22px;
-      box-shadow: var(--shadow);
+    .badge span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(77, 230, 255, 0.8), rgba(199, 255, 0, 0.8));
+      box-shadow: 0 8px 18px rgba(77, 230, 255, 0.25);
     }
 
-    .hobies h2 {
-      width: 100%;
-      color: var(--accent);
-      font-size: 1.3rem;
-      margin-bottom: 8px;
+    .card {
+      display: grid;
+      gap: 12px;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(17, 26, 50, 0.65);
+      box-shadow: 0 22px 46px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(18px);
     }
 
-    .hobies > div {
-      min-width: 120px;
-      flex: 1;
-    }
-
-    .hobies h3 {
-      color: var(--sky-blue);
-      font-size: 1.1rem;
-      margin-bottom: 4px;
-    }
-
-    .hobies ol {
+    .card h3 {
       margin: 0;
-      padding-left: 18px;
+      font-size: 1.2rem;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.74);
+      line-height: 1.6;
       font-size: 0.98rem;
     }
 
-    /* Resume Section */
-    .resume {
+    .tag-list {
       display: flex;
-      gap: 32px;
       flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
     }
 
-    .expertize, .education {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 18px 22px;
-      box-shadow: var(--shadow);
-      min-width: 220px;
-      flex: 1;
-    }
-
-    .expertize h2, .education h2 {
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .expertize h3, .education h3 {
-      color: var(--sky-blue);
-      margin-bottom: 4px;
-    }
-
-    .skills {
-      background: var(--navbar-bg);
-      border-radius: var(--border-radius);
-      padding: 18px 22px;
-      box-shadow: var(--shadow);
-      margin-top: 18px;
-    }
-
-    .skills h2 {
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .skillSection {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-
-    .development, .code {
-      flex: 1;
-      min-width: 220px;
-    }
-
-    .development h2, .code h2 {
-      color: var(--sky-blue);
-      font-size: 1.1rem;
-      margin-bottom: 4px;
-    }
-
-    .development ul, .code ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 8px 0;
-    }
-
-    .development li, .code li {
-      background: var(--card-bg);
-      border-radius: 12px;
-      margin-bottom: 8px;
+    .tag {
       padding: 8px 12px;
-      color: var(--white);
-      font-size: 1rem;
-      box-shadow: 0 2px 8px #04e6b980;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.78);
     }
 
-    /* Projects Section */
-    .info-card1 {
-      display: flex;
-      gap: 24px;
-      margin-top: 18px;
-      background: var(--navbar-bg);
-      border-radius: var(--border-radius);
-      padding: 18px 22px;
-      box-shadow: var(--shadow);
+    .project {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(7, 13, 26, 0.67);
+      box-shadow: 0 26px 48px rgba(0, 0, 0, 0.42);
+      transition: transform var(--speed), box-shadow var(--speed);
     }
 
-    .rows, .columns {
-      flex: 1;
-      min-width: 180px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .project:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 32px 62px rgba(0, 0, 0, 0.45);
     }
 
-    .rows h2, .columns h2 {
-      color: var(--accent);
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-
-    .p1 {
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 2px 8px #04e6b980;
-      padding: 8px;
-      margin-bottom: 8px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .p1 img {
-      width: 150px;
-      height: 150px;
+    .project img {
+      width: 100%;
+      height: 200px;
       object-fit: cover;
-      border-radius: 12px;
-      border: 2px solid var(--sky-blue);
-      box-shadow: 0 2px 8px #04e6b980;
-      transition: transform 0.3s;
+      display: block;
+      transition: transform var(--speed);
     }
 
-    .p1:hover {
-      transform: scale(1.08) rotate(-5deg);
-      box-shadow: 0 4px 16px #04e6b980;
+    .project:hover img {
+      transform: scale(1.04);
     }
 
-    .p1 img:hover {
-      transform: scale(1.12) rotate(8deg);
-    }
-
-    /* Contact Section */
-    .contact-container {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 18px 22px;
-      box-shadow: var(--shadow);
-      margin-top: 18px;
-    }
-
-    .contact-container h2 {
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .contact-details {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-
-    .contact-detail {
-      background: var(--navbar-bg);
-      border-radius: 12px;
-      padding: 8px 12px;
-      color: var(--white);
-      font-size: 1rem;
-      box-shadow: 0 2px 8px #04e6b980;
-      min-width: 120px;
-    }
-
-    .contact-detail span {
-      color: var(--sky-blue);
-      font-weight: 600;
-    }
-
-    .contact-container h3 {
-      color: var(--sky-blue);
-      margin-bottom: 8px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
+    .project__meta {
+      padding: 18px;
+      display: grid;
       gap: 10px;
     }
 
-    input, textarea {
-      background-color: var(--navbar-bg);
-      color: var(--white);
-      border: 1px solid var(--sky-blue);
-      border-radius: 10px;
-      padding: 10px;
-      width: 80%;
-      font-size: 1rem;
-      transition: border 0.2s, box-shadow 0.2s;
+    .project__meta h4 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
     }
 
-    input:focus, textarea:focus {
-      border: 2px solid var(--accent);
-      box-shadow: 0 2px 8px #ede90080;
+    .project__meta p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .project__cta {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: rgba(77, 230, 255, 0.95);
+    }
+
+    .project__cta svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .contact__grid {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact__card {
+      padding: 24px;
+    }
+
+    .contact__label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .contact__value {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.5;
+    }
+
+    .form {
+      display: grid;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .form input,
+    .form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(9, 15, 33, 0.68);
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.95rem;
       outline: none;
+      transition: border var(--speed), box-shadow var(--speed);
     }
 
-    button[type="submit"] {
-      border-style: none;
-      background: linear-gradient(90deg, var(--sky-blue), var(--accent));
-      border-radius: 10px;
-      padding: 10px;
-      width: 80%;
-      color: var(--dark-blue);
+    .form input:focus,
+    .form textarea:focus {
+      border-color: rgba(77, 230, 255, 0.45);
+      box-shadow: 0 0 0 4px rgba(77, 230, 255, 0.13);
+    }
+
+    .form textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form button {
+      width: max-content;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(77, 230, 255, 0.45);
+      background: linear-gradient(110deg, rgba(77, 230, 255, 0.23), rgba(199, 255, 0, 0.12));
+      color: rgba(255, 255, 255, 0.95);
       font-weight: 700;
-      font-size: 1.1rem;
       cursor: pointer;
-      box-shadow: 0 2px 8px #04e6b980;
-      transition: background 0.2s, color 0.2s, transform 0.2s;
+      transition: transform var(--speed), box-shadow var(--speed);
     }
 
-    button[type="submit"]:hover {
-      background: linear-gradient(90deg, var(--accent), var(--sky-blue));
-      color: var(--white);
-      transform: scale(1.05);
+    .form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
     }
 
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.97);}
-      to { opacity: 1; transform: scale(1);}
+    footer {
+      padding: 26px 0 40px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.9rem;
     }
 
-    @keyframes up {
-      from { opacity: 0; transform: translateY(40px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes right {
-      from { opacity: 0; transform: translateX(40px);}
-      to { opacity: 1; transform: translateX(0);}
-    }
-
-    @keyframes left {
-      from { opacity: 0; transform: translateX(-40px);}
-      to { opacity: 1; transform: translateX(0);}
-    }
-
-    .animateUp {
-      animation: up 0.8s cubic-bezier(.68,-0.55,.27,1.55) both;
-    }
-    .animateRight {
-      animation: right 0.8s cubic-bezier(.68,-0.55,.27,1.55) both;
-    }
-    .animateLeft {
-      animation: left 0.8s cubic-bezier(.68,-0.55,.27,1.55) both;
-    }
-
-    /* Cute details */
-    .me h2::after {
-      content: " ✨";
-      font-size: 1.3rem;
-      color: var(--accent);
-      animation: sparkle 1.5s infinite alternate;
-    }
-    @keyframes sparkle {
-      0% { opacity: 0.7; transform: scale(1);}
-      100% { opacity: 1; transform: scale(1.2);}
-    }
-
-    .navbar a.active::after {
-      font-size: 1.1rem;
-      margin-left: 4px;
-      vertical-align: middle;
-      animation: sparkle 1.5s infinite alternate;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .mainDabba {
-        padding: 18px 8px;
+    @media (max-width: 860px) {
+      .nav__links {
+        display: none;
       }
-      .navbar {
+
+      .nav__links.open {
+        position: absolute;
+        top: 100%;
         left: 0;
-        top: -60px;
-        flex-direction: row;
-        padding: 8px 16px;
-        gap: 12px;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        background: rgba(9, 15, 33, 0.95);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 20px;
+        gap: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.34);
+      }
+
+      .nav__toggle {
+        display: grid;
+      }
+
+      .hero {
+        padding: 140px 0 100px;
+      }
+
+      .contact__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
       }
     }
-    @media (max-width: 700px) {
-      .mainDabba {
-        max-width: 98vw;
-        padding: 8px 2vw;
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
       }
-      .pehla, .resume, .skillSection, .info-card1, .contact-details {
-        flex-direction: column;
-        gap: 16px;
-      }
-      .navbar {
-        position: static;
-        margin-bottom: 12px;
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="body">
-    <!-- main dabba -->
-    <div class="mainDabba">
-      <!-- Vertical Navbar -->
-      <div class="navbar">
-        <a data-target="about" class="active">👤</a>
-        <a data-target="resume">📄</a>
-        <a data-target="services">💼</a>
-        <a data-target="contact">✉️</a>
+  <header>
+    <div class="container nav">
+      <a class="nav__brand" href="#hero">
+        <img src="S1.jpg" alt="Satyam Raj" />
+        <span>Satyam Raj</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about" class="active">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav__toggle" aria-label="Toggle navigation">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="pattern"></div>
+      <div class="hero__canvas" aria-hidden="true">
+        <canvas id="heroCanvas"></canvas>
       </div>
-      <div class="me">
-        <div class="myImage">
-          <img src="S1.jpg" alt="Profile Picture">
+
+      <div class="container hero__content">
+        <h1 class="hero__heading">Hi, I'm <span style="background: linear-gradient(90deg, rgba(77, 230, 255, 0.95), rgba(199, 255, 0, 0.88)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Satyam Raj</span></h1>
+        <p class="hero__sub">Web Developer passionate about crafting immersive experiences, building performant interfaces, and shipping reliable modern web applications.</p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary">Let's Connect</a>
+          <a href="#projects" class="btn">View Projects</a>
         </div>
-        <h2>Satyam Raj</h2>
-        <h3 style="background: linear-gradient(to right, #04e6b9, #ede900);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;">Web Developer</h3>
-        <div class="links" style="display: flex; justify-content: center;">
-          <a style="width: 50%;margin-left: 33%;"
-          href="https://www.linkedin.com/in/satyam-raj-924b382a6?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEnZ0iwBRijYfQ56OiIXsSXn5eBO6qbqco0&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BOJClKgwiR7Wrc1GKHbwn7A%3D%3D"><img
-            src="l1.jpg" alt="" style="width: 60%;"></a>
-        <a style="width: 50%; margin-right: 40%;" href="https://github.com/Satyam4755"><img src="g1.jpg" alt="" style="width: 60%;"></a>
+        <div class="hero__socials">
+          <a class="social-icon" href="https://www.linkedin.com/in/satyam-raj-924b382a6?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEnZ0iwBRijYfQ56OiIXsSXn5eBO6qbqco0&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BOJClKgwiR7Wrc1GKHbwn7A%3D%3D" aria-label="LinkedIn">
+            <img src="l1.jpg" alt="LinkedIn" />
+          </a>
+          <a class="social-icon" href="https://github.com/Satyam4755" aria-label="GitHub">
+            <img src="g1.jpg" alt="GitHub" />
+          </a>
         </div>
       </div>
-      <hr>
-      <!-- Main Content -->
-      <div class="main-content">
-        <!-- About Section -->
-        <div id="about" class="section active">
-          <div class="pehla">
-            <div class="about">
-              <h2>About Me</h2>
-              <p>Hello! I'm Satyam Raj. A coding enthusiast with expertise in web design and development.
-                I
-                enjoy
-                building unique and creative projects that solve real-world problems.
-              </p>
-            </div>
-            <hr>
-            <div class="info-card">
-              <p><span>Age:</span> 20</p>
-              <p><span>Freelance:</span> currently not</p>
-              <p><span>Address:</span> Lucknow, India</p>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section__title">About</h2>
+        <div class="grid grid-2" style="align-items: start; gap: 30px;">
+          <div class="glass reveal">
+            <h3>About Me</h3>
+            <p>Hello! I'm Satyam Raj. A coding enthusiast with expertise in web design and development. I enjoy building unique and creative projects that solve real-world problems.</p>
+          </div>
+          <div class="glass reveal">
+            <div class="badge"><span></span><strong>Age:</strong> 20</div>
+            <div class="badge"><span></span><strong>Freelance:</strong> currently not</div>
+            <div class="badge"><span></span><strong>Address:</strong> Lucknow, India</div>
+          </div>
+        </div>
+
+        <div class="grid grid-3" style="margin-top: 38px;">
+          <div class="glass reveal">
+            <h3>Hobies</h3>
+            <div class="tag-list">
+              <div class="tag">HTML, CSS, JS</div>
+              <div class="tag">JAVA</div>
             </div>
           </div>
-          <hr>
-          <div class="hobies">
-            <h2>My Hobies</h2>
-            <div class="coding">
-              <h3>Coding</h3>
-              <ol>
-                <li>HTML, CSS, JS</li>
-                <li>JAVA</li>
-              </ol>
+          <div class="glass reveal">
+            <h3>Framework</h3>
+            <div class="tag-list">
+              <div class="tag">NODE.JS</div>
+              <div class="tag">EXPRESS.JS</div>
             </div>
-            <div class="framework">
-              <h3>Framework</h3>
-              <ol>
-                <li>NODE.JS</li>
-                <li>EXPRESS.JS</li>
-              </ol>
-            </div>
-            <div class="db">
-              <h3>DATABASE</h3>
-              <ol>
-                <li>MONGO DB</li>
-                <li>SQL</li>
-              </ol>
-            </div>
-            <div class="sports">
-              <h3>Sports</h3>
-              <ol>
-                <li>Badminton</li>
-                <li>Running</li>
-                <li>Volley-Ball</li>
-              </ol>
-            </div>
-            <div class="finance">
-              <h3>Finance</h3>
-              <ol>
-                <li>Money Management</li>
-                <li>Budgeting</li>
-              </ol>
+          </div>
+          <div class="glass reveal">
+            <h3>Database</h3>
+            <div class="tag-list">
+              <div class="tag">MONGO DB</div>
+              <div class="tag">SQL</div>
             </div>
           </div>
         </div>
 
-        <!-- Resume Section -->
-        <div id="resume" class="section second">
-          <h2>My Resume</h2>
-          <hr>
-          <div class="resume">
-            <div class="expertize">
-              <h2>Experience</h2>
-              <hr>
-              <p style="border: 1px solid blanchedalmond;width: fit-content; padding: 5px;">2023-Present
-              </p>
-              <h3>Full Stack Web Developer</h3>
-              <p>I've build many mini projects based on front-end development & so a Full stack website also with MERN stack
-              </p>
-              <hr>
-              <p style="border: 1px solid blanchedalmond;width: fit-content;padding: 5px;">2022-Present
-              </p>
-              <h3>Video Editor</h3>
-              <p>I edit the videos including youtube videos, shorts, insta-reels, etc</p>
+        <div class="grid grid-2" style="margin-top: 32px;">
+          <div class="glass reveal">
+            <h3>Sports</h3>
+            <p class="contact__value">Badminton<br />Running<br />Volley-Ball</p>
+          </div>
+          <div class="glass reveal">
+            <h3>Finance</h3>
+            <p class="contact__value">Money Management<br />Budgeting</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section__title">Skills</h2>
+        <div class="grid grid-2" style="gap: 32px;">
+          <div class="card reveal">
+            <h3>Experience</h3>
+            <p><span class="badge"><span></span>2023 - Present</span></p>
+            <p class="contact__value">Full Stack Web Developer<br />I've build many mini projects based on front-end development & so a Full stack website also with MERN stack</p>
+            <p><span class="badge"><span></span>2022 - Present</span></p>
+            <p class="contact__value">Video Editor<br />I edit the videos including youtube videos, shorts, insta-reels, etc</p>
+          </div>
+          <div class="card reveal">
+            <h3>Education</h3>
+            <p><span class="badge"><span></span>2023 - 2026</span></p>
+            <p class="contact__value">Bachelor of Computer Applications<br />Currently I'm persuing B.C.A from G.I.H.S.M Lucknow University.</p>
+            <p><span class="badge"><span></span>2019 - 2023</span></p>
+            <p class="contact__value">Secondary and Higher Secondary Education<br />Completed my Secondary and Higher Secondary Education from Jagran Public School with 85% of marks in Secondary and 60.5% of marks in Higher Secondary.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2" style="margin-top: 36px;">
+          <div class="card reveal">
+            <h3>Development</h3>
+            <div class="tag-list">
+              <div class="tag">Web Development 🟢🟢🟢🟢⚪️</div>
+              <div class="tag">Video Editing 🟢🟢🟢🟢⚪️</div>
             </div>
-            <hr>
-            <div class="education">
-              <h2>Education</h2>
-              <hr>
-              <p style="border: 1px solid blanchedalmond;width: fit-content;padding: 5px;">2023-2026</p>
-              <h3>Bachelor of Computer Applications</h3>
-              <p>Currently I'm persuing B.C.A from G.I.H.S.M Lucknow University.</p>
-              <hr>
-              <p style="border: 1px solid blanchedalmond;width: fit-content;padding: 5px;">2019-2023</p>
-              <h3>Secondary and Higher Secondary Education</h3>
-              <p>Completed my Secondary and Higher Secondary Education from Jagran Public School with
-                85% of marks in Secondary and 60.5% of marks in Higher Secondary.</p>
+            <h3 style="margin-top: 22px;">Communication</h3>
+            <div class="tag-list">
+              <div class="tag">Hindi 🟢🟢🟢🟢🟢</div>
+              <div class="tag">English 🟢🟢🟢⚪️⚪️</div>
             </div>
           </div>
-          <hr>
-          <!-- skills -->
-          <div class="skills">
-            <h2>My Skills</h2>
-            <hr>
-            <div class="skillSection">
-              <div class="development">
-                <!-- development -->
-                <h2>Development</h2>
-                <ul>
-                  <li>Web Development <br> 🟢 🟢 🟢 🟢 ⚪️
-                  </li><br>
-                  <li>Video Editing<br> 🟢 🟢 🟢 🟢 ⚪️</li>
-                </ul>
-                <hr>
-                <!-- communication -->
-                <h2>Communication</h2>
-                <ul style="font-size: large; ">
-                  <li>Hindi <br> 🟢 🟢 🟢 🟢 🟢 </li><br>
-                  <li>English <br> 🟢 🟢 🟢 ⚪️ ⚪️ </li>
-                </ul>
-                <hr>
-              </div>
-              <hr>
-              <!-- next column -->
-              <div class="code">
-                <!-- coding -->
-                <h2>Coding Languages</h2>
-                <ul>
-                  <li>HTML, CSS, JS <br> 🟢 🟢 🟢 🟢 ⚪️</li><br>
-                  <li>JAVA <br> 🟢 🟢 🟢 ⚪️ ⚪️</li><br>
-                  <li>PYTHON <br> 🟢 🟢 🟢 ⚪️ ⚪️</li><br>
-                  <li>C <br> 🟢 🟢 🟢 ⚪️ ⚪️</li>
-                </ul>
-                <hr>
-                <h2>Frame Works</h2>
-                <ul>
-                  <li>NODE JS<br> 🟢 🟢 🟢 🟢 🟢</li><br>
-                  <li>EXPRESS JS <br> 🟢 🟢 🟢 🟢 ⚪️</li><br>
-                </ul>
-                <hr>
-                <h2>DATABASE</h2>
-                <ul>
-                  <li>MONGO DB<br> 🟢 🟢 🟢 🟢 ⚪️</li><br>
-                  <li>SQL<br> 🟢 🟢 🟢 🟢 ⚪️</li><br>
-                </ul>
-                <hr>
-                <!-- Management -->
-                <h2>Management</h2>
-                <ul>
-                  <li>Time Management<br> 🟢 🟢 🟢 🟢 ⚪️</li><br>
-                  <li>Team Management<br> 🟢 🟢 🟢 🟢 ⚪️</li><br>
-                  <li>Work Management<br> 🟢 🟢 🟢 🟢 ⚪️</li><br>
-                </ul>
-                <hr>
-              </div>
+          <div class="card reveal">
+            <h3>Coding Languages</h3>
+            <div class="tag-list">
+              <div class="tag">HTML, CSS, JS 🟢🟢🟢🟢⚪️</div>
+              <div class="tag">JAVA 🟢🟢🟢⚪️⚪️</div>
+              <div class="tag">PYTHON 🟢🟢🟢⚪️⚪️</div>
+              <div class="tag">C 🟢🟢🟢⚪️⚪️</div>
+            </div>
+            <h3 style="margin-top: 22px;">Frame Works</h3>
+            <div class="tag-list">
+              <div class="tag">NODE JS 🟢🟢🟢🟢🟢</div>
+              <div class="tag">EXPRESS JS 🟢🟢🟢🟢⚪️</div>
+            </div>
+            <h3 style="margin-top: 22px;">Database</h3>
+            <div class="tag-list">
+              <div class="tag">MONGO DB 🟢🟢🟢🟢⚪️</div>
+              <div class="tag">SQL 🟢🟢🟢🟢⚪️</div>
+            </div>
+            <h3 style="margin-top: 22px;">Management</h3>
+            <div class="tag-list">
+              <div class="tag">Time Management 🟢🟢🟢🟢⚪️</div>
+              <div class="tag">Team Management 🟢🟢🟢🟢⚪️</div>
+              <div class="tag">Work Management 🟢🟢🟢🟢⚪️</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section__title">Projects</h2>
+        <div class="grid grid-2" style="gap: 28px;">
+          <div class="project reveal">
+            <a href="https://satyam4755.github.io/Typing-Speed-Tester/" aria-label="Typing Speed Tester">
+              <img src="p3.jpg" alt="Typing Speed Tester" />
+            </a>
+            <div class="project__meta">
+              <h4>Typing Speed Tester</h4>
+              <p>A sleek typing accuracy and speed workout tool built with modern frontend patterns.</p>
+              <div class="project__cta">View project →</div>
+            </div>
+          </div>
+          <div class="project reveal">
+            <a href="https://satyam4755.github.io/Music_section/" aria-label="Music Section">
+              <img src="p6.jpg" alt="Music Section" />
+            </a>
+            <div class="project__meta">
+              <h4>Music Player UI</h4>
+              <p>A responsive interactive music section featuring animated controls and smooth transitions.</p>
+              <div class="project__cta">View project →</div>
+            </div>
+          </div>
+          <div class="project reveal">
+            <a href="https://satyam4755.github.io/Sudoku-Game/" aria-label="Sudoku Game">
+              <img src="p7.png" alt="Sudoku Game" />
+            </a>
+            <div class="project__meta">
+              <h4>Sudoku Game</h4>
+              <p>A clean and interactive sudoku board with puzzle generation and validation logic.</p>
+              <div class="project__cta">View project →</div>
             </div>
           </div>
         </div>
 
-        <!-- Services Section -->
-        <div id="services" class="section third">
-          <h2>My Projects</h2>
-          <div class="info-card1" style="flex-wrap: wrap; justify-content: center; gap: 32px;">
-            <!-- FrontEnd Projects -->
-            <div class="rows" style="flex: 1; min-width: 220px;">
-              <h2>FrontEnd</h2>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 24px;">
-                <div class="p1 b1">
-                  <a href="https://satyam4755.github.io/Typing-Speed-Tester/">
-                    <img src="p3.jpg" alt="">
-                  </a>
-                </div>
-                <div class="p1 b3">
-                  <a href="https://satyam4755.github.io/Music_section/">
-                    <img src="p6.jpg" alt="">
-                  </a>
-                </div>
-                <div class="p1 b5">
-                  <a href="https://satyam4755.github.io/Sudoku-Game/">
-                    <img src="p7.png" alt="">
-                  </a>
-                </div>
-              </div>
+        <div class="grid grid-2" style="gap: 28px; margin-top: 32px;">
+          <div class="project reveal">
+            <a href="https://main-gethomes.onrender.com" aria-label="Get Homes">
+              <img src="pf6.jpg" alt="Get Homes" />
+            </a>
+            <div class="project__meta">
+              <h4>Get Homes</h4>
+              <p>A full-stack real estate listing platform built with modern APIs and responsive design.</p>
+              <div class="project__cta">View project →</div>
             </div>
-            <hr>
-            <!-- Full Stack Projects -->
-            <div class="columns" style="flex: 1; min-width: 220px;">
-              <h2>Full Stack</h2>
-              <div style="display: flex; flex-direction: column; align-items: center; gap: 24px;">
-                <div class="p1 b2">
-                  <a href="https://main-gethomes.onrender.com">
-                    <img src="pf6.jpg" alt="">
-                  </a>
-                </div>
-                <div class="p1 b4">
-                  <a href="https://tiffin-seva.onrender.com/">
-                    <img src="fd.jpeg" alt="">
-                  </a>
-                </div>
-                <div class="p1 b6">
-                  <a href="https://nivesh-news.onrender.com/">
-                    <img src="nv.jpeg" alt="">
-                  </a>
-                </div>
-                <div class="p1 b7">
-                  <a href="https://eventify-ai7a.onrender.com/">
-                    <img src="ev.jpeg" alt="">
-                  </a>
-                </div>
-              </div>
+          </div>
+          <div class="project reveal">
+            <a href="https://tiffin-seva.com/" aria-label="Tiffin Seva">
+              <img src="fd.jpeg" alt="Tiffin Seva" />
+            </a>
+            <div class="project__meta">
+              <h4>Tiffin Seva</h4>
+              <p>A food delivery platform with a fresh UI, order tracking, and responsive layout.</p>
+              <div class="project__cta">View project →</div>
+            </div>
+          </div>
+          <div class="project reveal">
+            <a href="https://nivesh-news.onrender.com/" aria-label="Nivesh News">
+              <img src="nv.jpeg" alt="Nivesh News" />
+            </a>
+            <div class="project__meta">
+              <h4>Nivesh News</h4>
+              <p>A modern news aggregator designed for fast browsing and easy content discovery.</p>
+              <div class="project__cta">View project →</div>
+            </div>
+          </div>
+          <div class="project reveal">
+            <a href="https://eventify-ai7a.onrender.com/" aria-label="Eventify">
+              <img src="ev.jpeg" alt="Eventify" />
+            </a>
+            <div class="project__meta">
+              <h4>Eventify</h4>
+              <p>An event discovery and booking application with a clean interface and smooth interactions.</p>
+              <div class="project__cta">View project →</div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Contact Section -->
-        <div id="contact" class="section forth">
-          <div class="contact-container">
-            <h2>Stay Connected</h2>
-            <div class="contact-details">
-              <div class="contact-detail">
-                <span>Address:</span>
-                Lucknow, India
-              </div>
-              <div class="contact-detail">
-                <span>Email:</span>
-                <p style="word-wrap: break-word;">satyambpl.2004@gmail.com</p>
-              </div>
-              <div class="contact-detail">
-                <span>Freelance:</span>
-                For Video Editing
-              </div>
-            </div>
+    <section id="contact">
+      <div class="container">
+        <h2 class="section__title">Contact</h2>
+        <div class="contact__grid">
+          <div class="card contact__card reveal">
+            <h3>Stay Connected</h3>
+            <p class="contact__value"><strong>Address:</strong> Lucknow, India</p>
+            <p class="contact__value"><strong>Email:</strong> <a href="mailto:satyambpl.2004@gmail.com" style="color: rgba(77, 230, 255, 0.9);">satyambpl.2004@gmail.com</a></p>
+            <p class="contact__value"><strong>Freelance:</strong> For Video Editing</p>
+          </div>
+          <div class="card contact__card reveal">
             <h3>Send Message</h3>
-            <form action="mailto:satyambpl.2004@gmail.com" method="POST" enctype="text/plain">
-              <input type="text" name="Name" placeholder="Full Name" required />
-              <input type="email" name="Email" placeholder="Email Address" required /><br><br>
-              <textarea name="Message" placeholder="Your Message" required></textarea>
+            <form class="form" action="mailto:satyambpl.2004@gmail.com" method="POST" enctype="text/plain">
+              <label class="contact__label" for="name">Full Name</label>
+              <input id="name" name="Name" type="text" placeholder="Full Name" required />
+              <label class="contact__label" for="email">Email Address</label>
+              <input id="email" name="Email" type="email" placeholder="Email Address" required />
+              <label class="contact__label" for="message">Your Message</label>
+              <textarea id="message" name="Message" placeholder="Your Message" required></textarea>
               <button type="submit">Send Message ✈</button>
             </form>
           </div>
         </div>
       </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Satyam Raj. Built with ❤️ & Three.js.</p>
     </div>
-  </div>
+  </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js" integrity="sha512-dY/K4qVAdminXnKy+NJah6lJ7bCdfp2rjOTQDV6f+NEwjUxB+QPlZgnsDmY5PY2M6Zvb+q3VjTnP2TtLWclcgw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-    // Select all navbar links and sections
-    const navLinks = document.querySelectorAll('.navbar a');
-    const sections = document.querySelectorAll('.section');
+    const year = new Date().getFullYear();
+    document.getElementById('year').textContent = year;
 
-    // Add event listeners to navbar links
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        // Remove active class from all links
-        navLinks.forEach(nav => nav.classList.remove('active'));
-        // Add active class to the clicked link
+    const navLinks = document.querySelectorAll('header nav a');
+    const sections = document.querySelectorAll('main section');
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        navLinks.forEach((item) => item.classList.remove('active'));
         link.classList.add('active');
-
-        // Hide all sections
-        sections.forEach(section => section.classList.remove('active'));
-        // Show the target section
-        const target = link.getAttribute('data-target');
-        document.getElementById(target).classList.add('active');
       });
     });
-    // for up ward animation
-    document.addEventListener("DOMContentLoaded", () => {
-      const observerOptions = {
-        root: null, // Use the viewport as the container
-        rootMargin: "0px",
-        threshold: 0.1, // Trigger when 10% of the element is visible
-      };
 
-      const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animateUp");
+            entry.target.classList.add('visible');
           }
         });
-      };
+      },
+      { threshold: 0.18 }
+    );
 
-      const observerUp = new IntersectionObserver(observerCallback, observerOptions);
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-      // Select elements to observe
-      const elementsToAnimate = document.querySelectorAll(".second, .third, .active,.forth");
-      elementsToAnimate.forEach(element => {
-        observerUp.observe(element);
-      });
-    });
-    // for right ward.....
-    document.addEventListener("DOMContentLoaded", () => {
-      const observerOptions2 = {
-        root: null, // Use the viewport as the container
-        rootMargin: "0px",
-        threshold: 0.1, // Trigger when 10% of the element is visible
-      };
-
-      const observerCallback2 = (entries, observer) => {
-        entries.forEach(entry => {
+    const navObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.id;
+          const link = document.querySelector(`header nav a[href="#${id}"]`);
+          if (!link) return;
           if (entry.isIntersecting) {
-            entry.target.classList.add("animateRight");
+            navLinks.forEach((item) => item.classList.remove('active'));
+            link.classList.add('active');
           }
         });
-      };
-      // for up
-      const observerRight = new IntersectionObserver(observerCallback2, observerOptions2);
+      },
+      { threshold: 0.45 }
+    );
 
-      // Select elements to observe
-      const elementsToAnimate = document.querySelectorAll(".pehla, .resume,.b1,.b3,.b5,.b7");
-      elementsToAnimate.forEach(element => {
-        observerRight.observe(element);
-      });
+    sections.forEach((section) => navObserver.observe(section));
+
+    const toggle = document.querySelector('.nav__toggle');
+    const navLinksContainer = document.querySelector('.nav__links');
+    toggle.addEventListener('click', () => {
+      navLinksContainer.classList.toggle('open');
+      toggle.classList.toggle('active');
     });
-    // for left ward.....
-    document.addEventListener("DOMContentLoaded", () => {
-      const observerOptions3 = {
-        root: null, // Use the viewport as the container
-        rootMargin: "0px",
-        threshold: 0.1, // Trigger when 10% of the element is visible
-      };
 
-      const observerCallback3 = (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animateLeft");
-          }
-        });
-      };
-      // for up
-      const observerLeft = new IntersectionObserver(observerCallback3, observerOptions3);
+    const canvas = document.getElementById('heroCanvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 12);
 
-      // Select elements to observe
-      const elementsToAnimate = document.querySelectorAll(".hobies,.skills,.b2,.b4,.b6,.b8");
-      elementsToAnimate.forEach(element => {
-        observerLeft.observe(element);
-      });
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0);
+
+    const ambient = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambient);
+    const directional = new THREE.DirectionalLight(0xa1f8ff, 1.2);
+    directional.position.set(2, 5, 5);
+    scene.add(directional);
+
+    const geometry = new THREE.TorusGeometry(3, 0.7, 22, 130);
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x4de6ff,
+      emissive: 0x0a1c2b,
+      metalness: 0.65,
+      roughness: 0.18,
+      envMapIntensity: 1.2,
     });
+
+    const torus = new THREE.Mesh(geometry, material);
+    torus.rotation.x = Math.PI * 0.25;
+    scene.add(torus);
+
+    const ringGeo = new THREE.RingGeometry(4.4, 4.8, 64);
+    const ringMat = new THREE.MeshBasicMaterial({
+      color: 0x4de6ff,
+      transparent: true,
+      opacity: 0.12,
+      side: THREE.DoubleSide,
+    });
+    const ring = new THREE.Mesh(ringGeo, ringMat);
+    ring.rotation.x = Math.PI * 0.5;
+    scene.add(ring);
+
+    const resize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    };
+
+    window.addEventListener('resize', resize);
+
+    const clock = new THREE.Clock();
+    const animate = () => {
+      const t = clock.getElapsedTime();
+      torus.rotation.y = t * 0.35;
+      torus.rotation.x = Math.sin(t * 0.7) * 0.22;
+      ring.rotation.z = -t * 0.2;
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    };
+
+    animate();
   </script>
 </body>
 
-</html></div></ul>
+</html>
