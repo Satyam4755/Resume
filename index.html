@@ -5,22 +5,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Satyam Raj | Full Stack & AI Developer</title>
-  <meta name="description" content="Portfolio of Satyam Raj - Full Stack Developer building scalable & AI-Powered applications." />
+  <meta name="description"
+    content="Portfolio of Satyam Raj - Full Stack Developer building scalable & AI-Powered applications." />
   <link rel="icon" href="S1.jpg" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Modern Fonts: Outfit for Display, Inter for Body -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet" />
+
   <style>
     /* ----- CORE VARIABLES & RESET ----- */
     :root {
       --bg-base: #030712;
       --bg-surface: rgba(17, 24, 39, 0.65);
       --bg-card: rgba(31, 41, 55, 0.45);
-      --accent-1: #38bdf8; /* Soft Blue */
-      --accent-2: #818cf8; /* Indigo */
-      --accent-3: #a78bfa; /* Soft Purple */
+      --accent-1: #38bdf8;
+      /* Soft Blue */
+      --accent-2: #818cf8;
+      /* Indigo */
+      --accent-3: #a78bfa;
+      /* Soft Purple */
       --accent-glow: rgba(56, 189, 248, 0.25);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
@@ -47,7 +53,7 @@
       font-family: "Inter", sans-serif;
       color: var(--text-main);
       background-color: var(--bg-base);
-      background-image: 
+      background-image:
         radial-gradient(ellipse at top left, rgba(56, 189, 248, 0.15) 0%, transparent 60%),
         radial-gradient(ellipse at bottom right, rgba(167, 139, 250, 0.15) 0%, transparent 60%);
       min-height: 100vh;
@@ -57,12 +63,18 @@
       max-width: 100vw;
     }
 
-    img, canvas {
+    img,
+    canvas {
       max-width: 100%;
       height: auto;
     }
 
-    h1, h2, h3, h4, h5, .display-font {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    .display-font {
       font-family: "Outfit", sans-serif;
     }
 
@@ -71,7 +83,8 @@
       text-decoration: none;
     }
 
-    ul, li {
+    ul,
+    li {
       list-style: none;
     }
 
@@ -173,9 +186,11 @@
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         transition: clip-path 0.4s ease-in-out;
       }
+
       .nav__links.open {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       }
+
       .nav__toggle {
         display: block;
       }
@@ -202,8 +217,11 @@
     .btn::before {
       content: "";
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transform: translateX(-100%);
       transition: 0.6s;
       z-index: -1;
@@ -362,7 +380,7 @@
       color: var(--accent-1);
       transform: translateY(-3px);
     }
-    
+
     .social-icon svg {
       width: 20px;
       height: 20px;
@@ -411,8 +429,11 @@
     .glass-card::after {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255,255,255,0.06), transparent 40%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255, 255, 255, 0.06), transparent 40%);
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.3s;
@@ -423,7 +444,7 @@
       border-color: rgba(255, 255, 255, 0.15);
       box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
     }
-    
+
     .glass-card:hover::after {
       opacity: 1;
     }
@@ -434,15 +455,23 @@
       transform: translateY(30px);
       transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    
+
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
+
+    .delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .delay-3 {
+      transition-delay: 0.3s;
+    }
 
     /* ----- ABOUT SECTION ----- */
     .about-grid {
@@ -510,7 +539,7 @@
       margin-bottom: 1.5rem;
       color: var(--accent-1);
     }
-    
+
     .skill-icon svg {
       width: 28px;
       height: 28px;
@@ -521,7 +550,8 @@
       margin-bottom: 1.25rem;
     }
 
-    .skill-tags, .tag-list {
+    .skill-tags,
+    .tag-list {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
@@ -547,12 +577,14 @@
     #projects {
       position: relative;
     }
-    
+
     #projects::before {
       content: '';
       position: absolute;
-      top: 50%; left: 50%;
-      width: 800px; height: 800px;
+      top: 50%;
+      left: 50%;
+      width: 800px;
+      height: 800px;
       transform: translate(-50%, -50%);
       background: radial-gradient(circle, rgba(167, 139, 250, 0.08) 0%, transparent 70%);
       z-index: -1;
@@ -590,15 +622,17 @@
     .project-showcase::after {
       content: '';
       position: absolute;
-      top: 0; right: 0;
-      width: 50%; height: 100%;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
       background: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1.5" fill="rgba(167,139,250,0.15)"/></svg>');
       mask-image: linear-gradient(to left, black, transparent);
       -webkit-mask-image: linear-gradient(to left, black, transparent);
       z-index: 0;
       transition: opacity 0.4s;
     }
-    
+
     .project-showcase:hover::after {
       opacity: 0.7;
     }
@@ -608,11 +642,14 @@
       .project-showcase {
         flex-direction: row;
       }
+
       .project-showcase.reverse {
         flex-direction: row-reverse;
       }
+
       .project-showcase.reverse::after {
-        right: auto; left: 0;
+        right: auto;
+        left: 0;
         mask-image: linear-gradient(to right, black, transparent);
         -webkit-mask-image: linear-gradient(to right, black, transparent);
       }
@@ -667,9 +704,10 @@
     .project-feature-icon {
       margin-top: 0.1rem;
     }
-    
+
     .project-feature-icon svg {
-      width: 24px; height: 24px;
+      width: 24px;
+      height: 24px;
     }
 
     .project-feature-text h4 {
@@ -710,7 +748,7 @@
       align-items: center;
       justify-content: center;
       min-height: 380px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     .project-visual img {
@@ -723,7 +761,7 @@
     .project-showcase:hover .project-visual img {
       transform: scale(1.05);
     }
-    
+
     /* Mock UI specifically for AI Assistant visualization */
     .mock-ai-ui {
       width: 85%;
@@ -736,28 +774,104 @@
       flex-direction: column;
       position: relative;
     }
-    .mock-header { padding: 1rem; border-bottom: 1px solid var(--border-light); display: flex; align-items: center; gap: 0.5rem; }
-    .mock-dot { width: 10px; height: 10px; border-radius: 50%; background: #c084fc; animation: pulse 2s infinite;}
-    .mock-body { flex: 1; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;}
-    .mock-msg { padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; max-width: 80%; line-height: 1.5;}
-    .mock-msg.user { background: rgba(255,255,255,0.05); align-self: flex-end;}
-    .mock-msg.ai { background: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.2); align-self: flex-start; color: #f3e8ff;}
-    .mock-type { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.2); width: 60%; margin-top: 0.5rem;}
-    .mock-type.short { width: 40%;}
+
+    .mock-header {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mock-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #c084fc;
+      animation: pulse 2s infinite;
+    }
+
+    .mock-body {
+      flex: 1;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mock-msg {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      max-width: 80%;
+      line-height: 1.5;
+    }
+
+    .mock-msg.user {
+      background: rgba(255, 255, 255, 0.05);
+      align-self: flex-end;
+    }
+
+    .mock-msg.ai {
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      align-self: flex-start;
+      color: #f3e8ff;
+    }
+
+    .mock-type {
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.2);
+      width: 60%;
+      margin-top: 0.5rem;
+    }
+
+    .mock-type.short {
+      width: 40%;
+    }
 
     /* Custom Gradients per project */
-    .grad-purple { background: linear-gradient(to right, #e879f9, #c084fc); }
-    .grad-blue { background: linear-gradient(to right, #38bdf8, #818cf8); }
-    .grad-green { background: linear-gradient(to right, #34d399, #10b981); }
-    .grad-pink { background: linear-gradient(to right, #f472b6, #e11d48); }
-    .grad-yellow { background: linear-gradient(to right, #fbbf24, #f59e0b); }
+    .grad-purple {
+      background: linear-gradient(to right, #e879f9, #c084fc);
+    }
+
+    .grad-blue {
+      background: linear-gradient(to right, #38bdf8, #818cf8);
+    }
+
+    .grad-green {
+      background: linear-gradient(to right, #34d399, #10b981);
+    }
+
+    .grad-pink {
+      background: linear-gradient(to right, #f472b6, #e11d48);
+    }
+
+    .grad-yellow {
+      background: linear-gradient(to right, #fbbf24, #f59e0b);
+    }
 
     /* Icons Custom Colors */
-    .icon-purple { color: #c084fc; }
-    .icon-blue { color: #38bdf8; }
-    .icon-green { color: #34d399; }
-    .icon-pink { color: #f472b6; }
-    .icon-yellow { color: #fbbf24; }
+    .icon-purple {
+      color: #c084fc;
+    }
+
+    .icon-blue {
+      color: #38bdf8;
+    }
+
+    .icon-green {
+      color: #34d399;
+    }
+
+    .icon-pink {
+      color: #f472b6;
+    }
+
+    .icon-yellow {
+      color: #fbbf24;
+    }
 
     /* Contact specific */
     .contact-container {
@@ -787,7 +901,8 @@
     }
 
     .freelance-banner span {
-      width: 8px; height: 8px;
+      width: 8px;
+      height: 8px;
       background: #34d399;
       border-radius: 50%;
       box-shadow: 0 0 8px #34d399;
@@ -803,7 +918,7 @@
       font-size: 1.1rem;
       margin-bottom: 2rem;
     }
-    
+
     .contact-item {
       display: flex;
       align-items: flex-start;
@@ -812,20 +927,28 @@
     }
 
     .contact-icon {
-      width: 40px; height: 40px;
-      background: rgba(255,255,255,0.05);
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--accent-1);
       flex-shrink: 0;
     }
 
     .contact-details h4 {
-      font-size: 1rem; margin-bottom: 0.2rem;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
     }
-    .contact-details a, .contact-details span {
-      color: var(--text-muted); font-size: 0.95rem;
+
+    .contact-details a,
+    .contact-details span {
+      color: var(--text-muted);
+      font-size: 0.95rem;
     }
+
     .contact-details a:hover {
       color: var(--accent-1);
     }
@@ -888,56 +1011,111 @@
 
     /* ----- ANIMATIONS & MEDIA QUERIES ----- */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes pulse {
-      0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.2); }
-      100% { opacity: 1; transform: scale(1); }
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     @media (max-width: 992px) {
-      .about-grid, .contact-container {
+
+      .about-grid,
+      .contact-container {
         grid-template-columns: 1fr;
         gap: 3rem;
       }
-      .contact-container { padding: 2.5rem; }
-      .project-showcase { padding: 2rem; gap: 2rem; }
+
+      .contact-container {
+        padding: 2.5rem;
+      }
+
+      .project-showcase {
+        padding: 2rem;
+        gap: 2rem;
+      }
+
       .hero__title {
         font-size: clamp(2.2rem, 5vw, 3.5rem);
       }
     }
 
     @media (max-width: 576px) {
-      section { padding: 4rem 0; }
-      .contact-container { padding: 1.5rem; }
-      .project-showcase { padding: 1.5rem; }
-      .btn { padding: 0.75rem 1.25rem; font-size: 0.9rem; }
-      .project-showcase-actions { flex-direction: column; gap: 0.75rem; width: 100%; }
-      .project-showcase-actions .btn { width: 100%; }
+      section {
+        padding: 4rem 0;
+      }
+
+      .contact-container {
+        padding: 1.5rem;
+      }
+
+      .project-showcase {
+        padding: 1.5rem;
+      }
+
+      .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+      }
+
+      .project-showcase-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .project-showcase-actions .btn {
+        width: 100%;
+      }
     }
 
     @media (max-width: 768px) {
-      html, body {
+
+      html,
+      body {
         max-width: 100vw;
         overflow-x: hidden;
       }
+
       body {
         width: 100%;
         overflow-x: hidden;
       }
+
       .container {
         width: 100%;
         padding: 0 1rem;
       }
+
       section {
         padding: 4rem 0;
       }
+
       .hero__content {
         width: 100%;
       }
+
       .projects-grid,
       .skills-grid {
         grid-template-columns: 1fr;
@@ -951,7 +1129,8 @@
   <header id="header">
     <div class="container nav">
       <a class="nav__brand" href="#top">
-        <img src="S1.jpg" alt="Satyam Raj" onerror="this.src='https://ui-avatars.com/api/?name=Satyam+Raj&background=0D8ABC&color=fff'" />
+        <img src="S1.jpg" alt="Satyam Raj"
+          onerror="this.src='https://ui-avatars.com/api/?name=Satyam+Raj&background=0D8ABC&color=fff'" />
         <span>Satyam Raj</span>
       </a>
       <nav class="nav__links" id="nav-links">
@@ -961,7 +1140,8 @@
         <a href="#contact">Contact</a>
       </nav>
       <button class="nav__toggle" id="mobile-toggle" aria-label="Toggle menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -982,23 +1162,31 @@
           <span></span> Available for new opportunities
         </div>
         <h1 class="hero__title display-font">
-          Full Stack Developer <br/>
-          <span class="text-gradient">Building</span> 
-          <span class="text-accent">Scalable & AI-Powered</span> 
+          Full Stack Developer <br />
+          <span class="text-gradient">Building</span>
+          <span class="text-accent">Scalable & AI-Powered</span>
           <span class="text-gradient">Applications</span>
         </h1>
         <p class="hero__subtitle">
-          I bridge the gap between aesthetic interfaces and robust backend systems. Passionate about real-world problem-solving, clean code, and modern web technologies.
+          I bridge the gap between aesthetic interfaces and robust backend systems. Passionate about real-world
+          problem-solving, clean code, and modern web technologies.
         </p>
         <div class="hero__actions">
           <a href="#projects" class="btn btn--primary">View Projects</a>
           <a href="#contact" class="btn btn--outline">Let's Connect</a>
           <div class="social-links">
             <a href="https://github.com/Satyam4755" target="_blank" class="social-icon" aria-label="GitHub">
-              <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
             </a>
-            <a href="https://linkedin.com/in/satyam-raj-924b382a6" target="_blank" class="social-icon" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://linkedin.com/in/satyam-raj-924b382a6" target="_blank" class="social-icon"
+              aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -1012,16 +1200,22 @@
           <h2 class="section-title display-font">About <span class="text-accent">Me</span></h2>
           <p class="section-subtitle">Dedicated to creating elegant solutions to complex problems</p>
         </div>
-        
+
         <div class="about-grid">
           <div class="glass-card reveal delay-1">
             <h3>My Journey</h3>
-            <p>I am a multifaceted Full Stack Developer based in Lucknow, India. My journey in tech started with a profound curiosity for how digital experiences are built, which quickly evolved into a full-fledged passion for software engineering.</p>
-            <p>Currently pursuing my Bachelor of Computer Applications, I have cultivated a strong foundation in modern web technologies. I thrive in environments where performance meets aesthetics, constantly pushing the boundaries of what's possible in the browser.</p>
-            <p>Beyond coding, I have professional experience in video editing and a deep interest in financial management, giving me a unique perspective on user engagement and product viability.</p>
+            <p>I am a multifaceted Full Stack Developer based in Lucknow, India. My journey in tech started with a
+              profound curiosity for how digital experiences are built, which quickly evolved into a full-fledged
+              passion for software engineering.</p>
+            <p>Currently pursuing my Bachelor of Computer Applications, I have cultivated a strong foundation in modern
+              web technologies. I thrive in environments where performance meets aesthetics, constantly pushing the
+              boundaries of what's possible in the browser.</p>
+            <p>Beyond coding, I have professional experience in video editing and a deep interest in financial
+              management, giving me a unique perspective on user engagement and product viability.</p>
           </div>
-          
-          <div class="glass-card reveal delay-2" style="display: flex; flex-direction: column; justify-content: space-between;">
+
+          <div class="glass-card reveal delay-2"
+            style="display: flex; flex-direction: column; justify-content: space-between;">
             <div>
               <h3>Quick Data</h3>
               <div class="info-list">
@@ -1039,9 +1233,10 @@
                 </div>
               </div>
             </div>
-            
+
             <div style="margin-top: 2rem;">
-              <h4 style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase;">Professional Attributes</h4>
+              <h4 style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase;">
+                Professional Attributes</h4>
               <div class="tag-list">
                 <span class="tag">Problem Solving</span>
                 <span class="tag">Time Management</span>
@@ -1066,7 +1261,12 @@
           <!-- Backend & Database -->
           <div class="glass-card skill-card reveal delay-1">
             <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
             </div>
             <h3>Backend Systems</h3>
             <div class="skill-tags">
@@ -1081,7 +1281,11 @@
           <!-- Frontend Architecture -->
           <div class="glass-card skill-card reveal delay-2">
             <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
             </div>
             <h3>Frontend Architecture</h3>
             <div class="skill-tags">
@@ -1095,7 +1299,10 @@
           <!-- Cloud & DevOps -->
           <div class="glass-card skill-card reveal delay-3">
             <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+              </svg>
             </div>
             <h3>Cloud & CI/CD</h3>
             <div class="skill-tags">
@@ -1110,7 +1317,13 @@
           <!-- AI & Integration -->
           <div class="glass-card skill-card reveal delay-1">
             <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="2" x2="8" y2="6"></line><line x1="16" y1="2" x2="16" y2="6"></line><rect x="4" y="10" width="16" height="12" rx="2"></rect><circle cx="12" cy="16" r="2"></circle></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <rect x="4" y="10" width="16" height="12" rx="2"></rect>
+                <circle cx="12" cy="16" r="2"></circle>
+              </svg>
             </div>
             <h3>AI Integration</h3>
             <div class="skill-tags">
@@ -1121,11 +1334,15 @@
               <span class="tag">Prompt Engineering</span>
             </div>
           </div>
-          
+
           <!-- Core Languages -->
           <div class="glass-card skill-card reveal delay-2">
             <div class="skill-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
             </div>
             <h3>Core Languages & Tools</h3>
             <div class="skill-tags">
@@ -1145,21 +1362,29 @@
       <div class="container">
         <div class="section-header reveal">
           <h2 class="section-title display-font">Premium <span class="text-accent">Case Studies</span></h2>
-          <p class="section-subtitle">A showcase of production-ready, scalable, and AI-powered applications engineered for real-world impact.</p>
+          <p class="section-subtitle">A showcase of production-ready, scalable, and AI-powered applications engineered
+            for real-world impact.</p>
         </div>
 
         <div class="projects-stack">
-          
+
           <!-- Project 1: Personal AI Assistant -->
           <div class="project-showcase reveal delay-1" style="border-color: rgba(192, 132, 252, 0.4);">
             <div class="project-content-showcase">
               <h3 class="grad-purple">Personal AI Assistant</h3>
-              <p class="project-desc-short">An advanced, multi-modal AI system built to automate tasks, process voice commands, and act as a personalized intelligent companion.</p>
-              
+              <p class="project-desc-short">An advanced, multi-modal AI system built to automate tasks, process voice
+                commands, and act as a personalized intelligent companion.</p>
+
               <div class="project-features">
                 <div class="project-feature">
                   <div class="project-feature-icon icon-purple">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                      <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                      <line x1="12" y1="19" x2="12" y2="23"></line>
+                      <line x1="8" y1="23" x2="16" y2="23"></line>
+                    </svg>
                   </div>
                   <div class="project-feature-text">
                     <h4>Voice Recognition & TTS</h4>
@@ -1168,16 +1393,25 @@
                 </div>
                 <div class="project-feature">
                   <div class="project-feature-icon icon-purple">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
                   </div>
                   <div class="project-feature-text">
                     <h4>Vision & Context</h4>
-                    <p>Equipped with context-aware processing allowing the assistant to understand environment states.</p>
+                    <p>Equipped with context-aware processing allowing the assistant to understand environment states.
+                    </p>
                   </div>
                 </div>
                 <div class="project-feature">
                   <div class="project-feature-icon icon-purple">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
                   </div>
                   <div class="project-feature-text">
                     <h4>Automation Workflow</h4>
@@ -1192,12 +1426,14 @@
                 <span class="tag">Node.js</span>
                 <span class="tag">AI Agents</span>
               </div>
-              
+
               <div class="project-showcase-actions">
-                <a href="https://github.com/Satyam4755/Personal-agentic-ai-assistant" target="_blank" class="btn btn--outline" style="border-color: rgba(192, 132, 252, 0.4); color: #e879f9;">View Repository</a>
+                <a href="https://github.com/Satyam4755/Personal-agentic-ai-assistant" target="_blank"
+                  class="btn btn--outline" style="border-color: rgba(192, 132, 252, 0.4); color: #e879f9;">View
+                  Repository</a>
               </div>
             </div>
-            
+
             <div class="project-visual">
               <div class="mock-ai-ui">
                 <div class="mock-header">
@@ -1206,7 +1442,8 @@
                 </div>
                 <div class="mock-body">
                   <div class="mock-msg user">"Can you analyze the recent system logs for errors?"</div>
-                  <div class="mock-msg ai">"Analyzing logs now... Found 3 critical warnings in the auth module. Suggesting patches based on context."</div>
+                  <div class="mock-msg ai">"Analyzing logs now... Found 3 critical warnings in the auth module.
+                    Suggesting patches based on context."</div>
                   <div class="mock-type"></div>
                   <div class="mock-type short"></div>
                 </div>
@@ -1218,12 +1455,21 @@
           <div class="project-showcase reverse reveal delay-1" style="border-color: rgba(56, 189, 248, 0.4);">
             <div class="project-content-showcase">
               <h3 class="grad-blue">Tiffin Seva</h3>
-              <p class="project-desc-short">A comprehensive food delivery platform tailored specifically for local tiffin services. Engineered with physically independent modular apps for Clients and Vendors hooked to a central fast backend.</p>
-              
+              <p class="project-desc-short">A comprehensive food delivery platform tailored specifically for local
+                tiffin services. Engineered with physically independent modular apps for Clients and Vendors hooked to a
+                central fast backend.</p>
+
               <div class="project-features">
                 <div class="project-feature">
                   <div class="project-feature-icon icon-blue">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                      </path>
+                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                      <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
                   </div>
                   <div class="project-feature-text">
                     <h4>Scalable Backend Architecture</h4>
@@ -1232,11 +1478,15 @@
                 </div>
                 <div class="project-feature">
                   <div class="project-feature-icon icon-blue">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
                   </div>
                   <div class="project-feature-text">
                     <h4>Real-time Order Chatbot</h4>
-                    <p>Intelligent AI integration allowing seamless customer support queries directly inside the apps.</p>
+                    <p>Intelligent AI integration allowing seamless customer support queries directly inside the apps.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -1247,15 +1497,18 @@
                 <span class="tag">MongoDB</span>
                 <span class="tag">AI Chatbot</span>
               </div>
-              
+
               <div class="project-showcase-actions">
-                <a href="https://tiffin-seva.com/" target="_blank" class="btn btn--outline" style="border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">Live Platform</a>
-                <a href="https://github.com/Satyam4755/Tiffin-Seva" target="_blank" class="btn btn--outline">View Repository</a>
+                <a href="https://tiffin-seva.com/" target="_blank" class="btn btn--outline"
+                  style="border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">Live Platform</a>
+                <a href="https://github.com/Satyam4755/Tiffin-Seva" target="_blank" class="btn btn--outline">View
+                  Repository</a>
               </div>
             </div>
-            
+
             <div class="project-visual">
-              <img src="tiffin-seva.png" alt="Tiffin Seva Mockup" onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop'">
+              <img src="tiffin-seva.png" alt="Tiffin Seva Mockup"
+                onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop'">
             </div>
           </div>
 
@@ -1263,12 +1516,17 @@
           <div class="project-showcase reveal delay-1" style="border-color: rgba(52, 211, 153, 0.4);">
             <div class="project-content-showcase">
               <h3 class="grad-green">Restron</h3>
-              <p class="project-desc-short">A full-stack modern platform for restaurant management and ordering.It connects the restaurant owners with their customers seamlessly.</p>
-              
+              <p class="project-desc-short">A full-stack modern platform for restaurant management and ordering.It
+                connects the restaurant owners with their customers seamlessly.</p>
+
               <div class="project-features">
                 <div class="project-feature">
                   <div class="project-feature-icon icon-green">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
                   </div>
                   <div class="project-feature-text">
                     <h4>Role-Based Authentication</h4>
@@ -1277,11 +1535,15 @@
                 </div>
                 <div class="project-feature">
                   <div class="project-feature-icon icon-green">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                    </svg>
                   </div>
                   <div class="project-feature-text">
                     <h4>Advanced Data Handling</h4>
-                    <p>Real-time food item & restaurant filtering across deep multidimensional JSON arrays without UI stagger.</p>
+                    <p>Real-time food item & restaurant filtering across deep multidimensional JSON arrays without UI
+                      stagger.</p>
                   </div>
                 </div>
               </div>
@@ -1292,15 +1554,18 @@
                 <span class="tag">MongoDB</span>
                 <span class="tag">JWT Auth</span>
               </div>
-              
+
               <div class="project-showcase-actions">
-                <a href="https://restronn.onrender.com/" target="_blank" class="btn btn--outline" style="border-color: rgba(52, 211, 153, 0.4); color: #34d399;">View Platform</a>
-                <a href="https://github.com/Satyam4755/Restron" target="_blank" class="btn btn--outline">View Repository</a>
+                <a href="https://restronn.onrender.com/" target="_blank" class="btn btn--outline"
+                  style="border-color: rgba(52, 211, 153, 0.4); color: #34d399;">View Platform</a>
+                <a href="https://github.com/Satyam4755/Restron" target="_blank" class="btn btn--outline">View
+                  Repository</a>
               </div>
             </div>
-            
+
             <div class="project-visual">
-              <img src="restron.png" alt="Restron UI" onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop'">
+              <img src="restron.png" alt="Restron UI"
+                onerror="this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop'">
             </div>
           </div>
 
@@ -1308,25 +1573,35 @@
           <div class="project-showcase reverse reveal delay-1" style="border-color: rgba(244, 114, 182, 0.4);">
             <div class="project-content-showcase">
               <h3 class="grad-pink">Nivesh News</h3>
-              <p class="project-desc-short">A minimalist, blisteringly fast news aggregator app. It pulls continuous data from external APIs and formats it into a highly legible, dark-themed reading experience.</p>
-              
+              <p class="project-desc-short">A minimalist, blisteringly fast news aggregator app. It pulls continuous
+                data from external APIs and formats it into a highly legible, dark-themed reading experience.</p>
+
               <div class="project-features">
                 <div class="project-feature">
                   <div class="project-feature-icon icon-pink">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
                   </div>
                   <div class="project-feature-text">
                     <h4>Lightning-Fast Rendering</h4>
-                    <p>Component-driven DOM updates and CSS Modules ensure near zero layout shift and lag-free scrolling.</p>
+                    <p>Component-driven DOM updates and CSS Modules ensure near zero layout shift and lag-free
+                      scrolling.</p>
                   </div>
                 </div>
                 <div class="project-feature">
                   <div class="project-feature-icon icon-pink">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                      <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                    </svg>
                   </div>
                   <div class="project-feature-text">
                     <h4>Live API Synchronization</h4>
-                    <p>Manages thousands of data points fetched concurrently from global news providers asynchronously.</p>
+                    <p>Manages thousands of data points fetched concurrently from global news providers asynchronously.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -1337,15 +1612,18 @@
                 <span class="tag">CSS Modules</span>
                 <span class="tag">Axios</span>
               </div>
-              
+
               <div class="project-showcase-actions">
-                <a href="https://nivesh-news.onrender.com/" target="_blank" class="btn btn--outline" style="border-color: rgba(244, 114, 182, 0.4); color: #f472b6;">Read Live</a>
-                <a href="https://github.com/Satyam4755/Nivesh-News" target="_blank" class="btn btn--outline">View Repository</a>
+                <a href="https://nivesh-news.onrender.com/" target="_blank" class="btn btn--outline"
+                  style="border-color: rgba(244, 114, 182, 0.4); color: #f472b6;">Read Live</a>
+                <a href="https://github.com/Satyam4755/Nivesh-News" target="_blank" class="btn btn--outline">View
+                  Repository</a>
               </div>
             </div>
-            
+
             <div class="project-visual">
-              <img src="nivesh.png" alt="Nivesh News Dashboard" onerror="this.src='https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=800&auto=format&fit=crop'">
+              <img src="nivesh.png" alt="Nivesh News Dashboard"
+                onerror="this.src='https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=800&auto=format&fit=crop'">
             </div>
           </div>
 
@@ -1353,12 +1631,17 @@
           <div class="project-showcase reveal delay-1" style="border-color: rgba(251, 191, 36, 0.4);">
             <div class="project-content-showcase">
               <h3 class="grad-yellow">Eventify</h3>
-              <p class="project-desc-short">An end-to-end event discovery and booking ecosystem. From host management to attendee checkouts, the data model supports highly complex scheduling logic.</p>
-              
+              <p class="project-desc-short">An end-to-end event discovery and booking ecosystem. From host management to
+                attendee checkouts, the data model supports highly complex scheduling logic.</p>
+
               <div class="project-features">
                 <div class="project-feature">
                   <div class="project-feature-icon icon-yellow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="12" y1="1" x2="12" y2="23"></line>
+                      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
                   </div>
                   <div class="project-feature-text">
                     <h4>Option based UI</h4>
@@ -1367,11 +1650,17 @@
                 </div>
                 <div class="project-feature">
                   <div class="project-feature-icon icon-yellow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg>
                   </div>
                   <div class="project-feature-text">
                     <h4>Relational Data Models</h4>
-                    <p>Engineered deep MongoDB aggregation pipelines linking profiles, unique events, and payment receipts.</p>
+                    <p>Engineered deep MongoDB aggregation pipelines linking profiles, unique events, and payment
+                      receipts.</p>
                   </div>
                 </div>
               </div>
@@ -1383,15 +1672,18 @@
                 <span class="tag">Stripe API</span>
                 <span class="tag">EJS Views</span>
               </div>
-              
+
               <div class="project-showcase-actions">
-                <a href="https://eventify-ai7a.onrender.com/" target="_blank" class="btn btn--outline" style="border-color: rgba(251, 191, 36, 0.4); color: #fbbf24;">Explore App</a>
-                <a href="https://github.com/Satyam4755/eventify" target="_blank" class="btn btn--outline">View Repository</a>
+                <a href="https://eventify-ai7a.onrender.com/" target="_blank" class="btn btn--outline"
+                  style="border-color: rgba(251, 191, 36, 0.4); color: #fbbf24;">Explore App</a>
+                <a href="https://github.com/Satyam4755/eventify" target="_blank" class="btn btn--outline">View
+                  Repository</a>
               </div>
             </div>
-            
+
             <div class="project-visual">
-              <img src="eventify.png" alt="Eventify Dashboard" onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop'">
+              <img src="eventify.png" alt="Eventify Dashboard"
+                onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop'">
             </div>
           </div>
 
@@ -1407,13 +1699,18 @@
             <div class="freelance-banner">
               <span></span> Available for Freelance / Opportunities
             </div>
-            <h2 class="display-font" style="font-size: 2.8rem; margin-bottom: 1rem;">Let's build something <span class="text-accent">great.</span></h2>
-            <p>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-            
+            <h2 class="display-font" style="font-size: 2.8rem; margin-bottom: 1rem;">Let's build something <span
+                class="text-accent">great.</span></h2>
+            <p>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try
+              my best to get back to you!</p>
+
             <div style="margin-top: 2.5rem;">
               <div class="contact-item">
                 <div class="contact-icon">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
                 </div>
                 <div class="contact-details">
                   <h4>Email</h4>
@@ -1422,7 +1719,10 @@
               </div>
               <div class="contact-item">
                 <div class="contact-icon">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
                 </div>
                 <div class="contact-details">
                   <h4>Location</h4>
@@ -1431,7 +1731,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="contact-form-wrapper">
             <form class="contact-form" action="mailto:satyambpl.2004@gmail.com" method="POST" enctype="text/plain">
               <div class="form-group">
@@ -1440,13 +1740,16 @@
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="Email" class="form-control" placeholder="john@example.com" required>
+                <input type="email" id="email" name="Email" class="form-control" placeholder="john@example.com"
+                  required>
               </div>
               <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" name="Message" class="form-control" placeholder="Tell me about your project..." required></textarea>
+                <textarea id="message" name="Message" class="form-control" placeholder="Tell me about your project..."
+                  required></textarea>
               </div>
-              <button type="submit" class="btn btn--primary" style="margin-top: 0.5rem; width: 100%;">Let's Build Something Great 🚀</button>
+              <button type="submit" class="btn btn--primary" style="margin-top: 0.5rem; width: 100%;">Let's Build
+                Something Great 🚀</button>
             </form>
           </div>
         </div>
@@ -1462,7 +1765,7 @@
 
   <!-- Three.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  
+
   <script>
     // System Logic
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -1471,7 +1774,7 @@
     const toggle = document.getElementById('mobile-toggle');
     const navLinksContainer = document.getElementById('nav-links');
     const navLinks = document.querySelectorAll('.nav__links a');
-    
+
     toggle.addEventListener('click', () => {
       navLinksContainer.classList.toggle('open');
     });
@@ -1479,7 +1782,7 @@
     // Header scroll background & active links
     const header = document.getElementById('header');
     const sections = document.querySelectorAll('section');
-    
+
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         header.style.background = 'rgba(3, 7, 18, 0.9)';
@@ -1515,7 +1818,7 @@
 
     // Scroll Reveal using Intersection Observer API
     const revealElements = document.querySelectorAll('.reveal');
-    
+
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1547,7 +1850,7 @@
     // ---------- THREE.JS BACKGROUND INTERACTIVE ANIMATION ----------
     const canvas = document.getElementById('heroCanvas');
     const scene = new THREE.Scene();
-    
+
     // Camera Setup
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 30;
@@ -1567,7 +1870,7 @@
 
     // Dynamic Central Shape (TorusKnot)
     const geometry = new THREE.TorusKnotGeometry(10, 2.5, 200, 32);
-    const material = new THREE.MeshPhysicalMaterial({ 
+    const material = new THREE.MeshPhysicalMaterial({
       color: 0x38bdf8,
       emissive: 0x0a1c2b,
       metalness: 0.9,
@@ -1584,13 +1887,13 @@
     const particlesCount = 1500;
     const posArray = new Float32Array(particlesCount * 3);
 
-    for(let i = 0; i < particlesCount * 3; i++) {
-        // Spread particles across a wide area (-50 to +50)
-        posArray[i] = (Math.random() - 0.5) * 100;
+    for (let i = 0; i < particlesCount * 3; i++) {
+      // Spread particles across a wide area (-50 to +50)
+      posArray[i] = (Math.random() - 0.5) * 100;
     }
 
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    
+
     // Create a circular texture for particles programmatically
     const pCanvas = document.createElement('canvas');
     pCanvas.width = 16; pCanvas.height = 16;
@@ -1599,17 +1902,17 @@
     gradient.addColorStop(0, 'rgba(255,255,255,1)');
     gradient.addColorStop(1, 'rgba(255,255,255,0)');
     pContext.fillStyle = gradient;
-    pContext.fillRect(0,0,16,16);
+    pContext.fillRect(0, 0, 16, 16);
     const pTexture = new THREE.CanvasTexture(pCanvas);
 
     const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.4,
-        map: pTexture,
-        transparent: true,
-        opacity: 0.6,
-        color: 0x818cf8,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
+      size: 0.4,
+      map: pTexture,
+      transparent: true,
+      opacity: 0.6,
+      color: 0x818cf8,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
     });
 
     const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
@@ -1625,44 +1928,45 @@
     const windowHalfY = window.innerHeight / 2;
 
     document.addEventListener('mousemove', (event) => {
-        mouseX = (event.clientX - windowHalfX);
-        mouseY = (event.clientY - windowHalfY);
+      mouseX = (event.clientX - windowHalfX);
+      mouseY = (event.clientY - windowHalfY);
     });
 
     // Resize Handler
     window.addEventListener('resize', () => {
-        setCanvasSize();
+      setCanvasSize();
     });
 
     // Animation Loop
     const clock = new THREE.Clock();
 
     const animate = () => {
-        requestAnimationFrame(animate);
-        
-        const elapsedTime = clock.getElapsedTime();
+      requestAnimationFrame(animate);
 
-        // Rotate central object
-        torusKnot.rotation.y = elapsedTime * 0.1;
-        torusKnot.rotation.x = elapsedTime * 0.05;
+      const elapsedTime = clock.getElapsedTime();
 
-        // Animate particles slowly
-        particlesMesh.rotation.y = -elapsedTime * 0.02;
+      // Rotate central object
+      torusKnot.rotation.y = elapsedTime * 0.1;
+      torusKnot.rotation.x = elapsedTime * 0.05;
 
-        // Parallax effect on mouse move (smooth easing)
-        targetX = mouseX * 0.001;
-        targetY = mouseY * 0.001;
-        
-        particlesMesh.rotation.y += 0.05 * (targetX - particlesMesh.rotation.y);
-        particlesMesh.rotation.x += 0.05 * (targetY - particlesMesh.rotation.x);
-        
-        torusKnot.rotation.y += 0.05 * (targetX - torusKnot.rotation.y);
-        torusKnot.rotation.x += 0.05 * (targetY - torusKnot.rotation.x);
+      // Animate particles slowly
+      particlesMesh.rotation.y = -elapsedTime * 0.02;
 
-        renderer.render(scene, camera);
+      // Parallax effect on mouse move (smooth easing)
+      targetX = mouseX * 0.001;
+      targetY = mouseY * 0.001;
+
+      particlesMesh.rotation.y += 0.05 * (targetX - particlesMesh.rotation.y);
+      particlesMesh.rotation.x += 0.05 * (targetY - particlesMesh.rotation.x);
+
+      torusKnot.rotation.y += 0.05 * (targetX - torusKnot.rotation.y);
+      torusKnot.rotation.x += 0.05 * (targetY - torusKnot.rotation.x);
+
+      renderer.render(scene, camera);
     };
 
     animate();
   </script>
 </body>
+
 </html>
